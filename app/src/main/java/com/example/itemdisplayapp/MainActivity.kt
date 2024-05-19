@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -68,15 +69,26 @@ fun MainScreen(){
         Text(
             text = stringResource(R.string.xp_computers),
             fontSize = 44.sp,
-            fontWeight = FontWeight.Bold)
+            fontWeight = FontWeight.Bold,
+            color = colorResource(id = R.color.text_color)
+        )
         LottieAnimation(
             composition = composition,
-            progress ={progress}
+            progress ={progress},
+            modifier = Modifier
+                .size(300.dp)
+                .padding(top = 64.dp, bottom = 64.dp)
+                .background(color = colorResource(id = R.color.sky_blue))
             )
-        Button(onClick = { isPlaying =true }) {
-            Modifier.size(24.dp)
+        Button(onClick = { isPlaying =true },
+            modifier = Modifier
+                .size(100.dp)
+                .background(color = colorResource(id = R.color.sky_blue),
+                )
+                 ) {
             Text(
-                text = stringResource(R.string.start)
+                text = stringResource(R.string.start),
+                fontSize = 24.sp
             )
 
         }
