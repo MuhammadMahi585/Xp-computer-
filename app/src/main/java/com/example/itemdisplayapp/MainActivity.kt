@@ -1,5 +1,7 @@
 package com.example.itemdisplayapp
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -32,20 +34,22 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.itemdisplayapp.ui.theme.ItemDisplayAppTheme
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             ItemDisplayAppTheme {
-                MainScreen()
+                MainScreen(this)
             }
         }
     }
 }
 
 @Composable
-fun MainScreen(){
+fun MainScreen(context: Context){
+    val navigate= Intent(context,DisplayItem::class.java)
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.animation))
     var isPlaying by remember{ mutableStateOf(true) }
     val progress by animateLottieCompositionAsState(
@@ -80,17 +84,18 @@ fun MainScreen(){
                 .padding(top = 64.dp, bottom = 64.dp)
                 .background(color = colorResource(id = R.color.sky_blue))
             )
-        Button(onClick = { isPlaying =true },
+        Button(onClick = {
+            isPlaying=true
+            context.startActivity(navigate)
+                         },
             modifier = Modifier
                 .size(100.dp)
-                .background(color = colorResource(id = R.color.sky_blue),
-                )
+                .background(color = colorResource(id = R.color.sky_blue))
                  ) {
             Text(
                 text = stringResource(R.string.start),
                 fontSize = 24.sp
             )
-
         }
     }
     }
@@ -99,6 +104,5 @@ fun MainScreen(){
 @Composable
 fun GreetingPreview() {
     ItemDisplayAppTheme {
-        MainScreen()
     }
 }

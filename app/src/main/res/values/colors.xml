@@ -10,4 +10,11 @@
     <color name="sky_blue">#87cefa</color>
     <color name="text_color">#28a7f6</color>
     <color name="button">#066098</color>
+    <color name="background_gradient_start">#000000</color>
+    <color name="background_gradient_end">#DDDDDD</color>
+    <color name="fastlane_background">#0096a6</color>
+    <color name="search_opaque">#ffaa3f</color>
+    <color name="selected_background">#ffaa3f</color>
+    <color name="default_background">#3d3d3d</color>
+    <color name="purple">#ba55d3</color>
 </resources>

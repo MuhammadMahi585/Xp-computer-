@@ -8,8 +8,13 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
-
+    <string name="iphone_5">Iphone 5</string>
+    <string name="iphone_11">Iphone 11</string>
+    <string name="galaxy_s10_prism_white_back">Galaxy S10 Prism White Back</string>
+    <string name="galaxy_s10_ceramic_black_front">Galaxy S10 Ceramic Black Front</string>
+    <string name="galaxy_s10_ceramic_black_back">Galaxy S10 Ceramic Black Back</string>
+    <string name="Samsung">Samsung</string>
+    <string name="Iphone">Iphone</string>
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
@@ -46,4 +51,25 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="title_activity_display_items">Leanback DisplayItems</string>
+    <string name="browse_title">Videos by Your Company</string>
+    <string name="related_movies">Related Videos</string>
+    <string name="grid_view">Grid View</string>
+    <string name="error_fragment">Error Fragment</string>
+    <string name="personal_settings">Personal Settings</string>
+    <string name="watch_trailer_1">Watch trailer</string>
+    <string name="watch_trailer_2">FREE</string>
+    <string name="rent_1">Rent By Day</string>
+    <string name="rent_2">From $1.99</string>
+    <string name="buy_1">Buy and Own</string>
+    <string name="buy_2">AT $9.99</string>
+    <string name="movie">Movie</string>
+
+    <!-- Error messages -->
+    <string name="error_fragment_message">An error occurred</string>
+    <string name="dismiss_error">Dismiss</string>
+    <string name="title_activity_diplay_items">DiplayItems</string>
+    <string name="title_activity_display_item">DisplayItem</string>
+    <string name="next_item">Next Item</string>
+    <string name="next2">Next</string>
 </resources>
