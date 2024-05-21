@@ -5,12 +5,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -32,6 +31,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.itemdisplayapp.ui.theme.ItemDisplayAppTheme
 
 class DisplayItem : ComponentActivity() {
@@ -40,7 +44,7 @@ class DisplayItem : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ItemDisplayAppTheme {
-             Display()
+            Display()
             }
         }
     }
@@ -66,46 +70,64 @@ fun Display() {
                 -> stringResource(id = R.string.galaxy_s10_prism_white_back)
 
         }
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = colorResource(id = R.color.sky_blue)),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(
-            text = stringResource(R.string.xp_computers),
-            fontSize = 44.sp,
-            fontWeight = FontWeight.Bold,
-            color = colorResource(id = R.color.text_color))
-        Spacer(modifier = Modifier.padding(16.dp))
-        Image(
-            painter = model,
-            contentDescription = "phone image",
+    Box {
+        LottieTheme()
+        Column(
             modifier = Modifier
-                .height(300.dp)
-                .width(200.dp))
-        Text(
-            text = "$modelTye",
-            maxLines = 1,
-            fontSize = 22.sp,
-            fontWeight = FontWeight.Bold,
-            color = colorResource(id = R.color.text_color),
-            modifier = Modifier.padding(16.dp).height(100.dp).fillMaxWidth()
-        )
-
-
-        Button(onClick = {i++},
-            colors = ButtonDefaults.buttonColors(colorResource(id = R.color.button)),
-            modifier = Modifier
-                .size(100.dp)
-                .background(color = colorResource(id = R.color.sky_blue))) {
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
             Text(
-                text = stringResource(R.string.next2),
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold)
+                text = stringResource(R.string.xp_computers),
+                fontSize = 44.sp,
+                fontWeight = FontWeight.Bold,
+                color = colorResource(id = R.color.purple)
+            )
+            Spacer(modifier = Modifier.padding(16.dp))
+            Image(
+                painter = model,
+                contentDescription = "phone image",
+                modifier = Modifier
+                    .height(300.dp)
+                    .width(200.dp)
+            )
+            Text(
+                text = "$modelTye",
+                maxLines = 1,
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold,
+                color = colorResource(id = R.color.white),
+                modifier = Modifier
+                    .padding(24.dp)
+
+            )
+            Button(
+                onClick = { i++ },
+                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.purple)),
+                modifier = Modifier
+                    .size(100.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.next2),
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+
         }
     }
+}
+@Composable
+fun LottieTheme(){
+    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.android))
+    val progress by animateLottieCompositionAsState(
+        composition = composition,
+        iterations = LottieConstants.IterateForever)
+        LottieAnimation(
+            modifier = Modifier.fillMaxSize(),
+            composition = composition,
+            progress={progress})
 }
 @Preview(showBackground = true)
 @Composable

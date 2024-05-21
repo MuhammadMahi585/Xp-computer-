@@ -3,11 +3,12 @@ package com.example.itemdisplayapp
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -39,6 +40,10 @@ import com.example.itemdisplayapp.ui.theme.ItemDisplayAppTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
         enableEdgeToEdge()
         setContent {
             ItemDisplayAppTheme {
@@ -64,40 +69,43 @@ fun MainScreen(context: Context){
             isPlaying = false
         }
     }
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = colorResource(id = R.color.sky_blue)),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(
-            text = stringResource(R.string.xp_computers),
-            fontSize = 44.sp,
-            fontWeight = FontWeight.Bold,
-            color = colorResource(id = R.color.text_color)
-        )
-        LottieAnimation(
-            composition = composition,
-            progress ={progress},
+    Box {
+        LottieTheme()
+        Column(
             modifier = Modifier
-                .size(300.dp)
-                .padding(top = 64.dp, bottom = 64.dp)
-                .background(color = colorResource(id = R.color.sky_blue))
-            )
-        Button(onClick = {
-            isPlaying=true
-            context.startActivity(navigate)
-                         },
-            colors = ButtonDefaults.buttonColors(colorResource(id = R.color.button)),
-            modifier = Modifier
-                .size(100.dp)
-                .background(color = colorResource(id = R.color.sky_blue)
-                 )) {
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
             Text(
-                text = stringResource(R.string.start),
-                fontSize = 24.sp
+                text = stringResource(R.string.xp_computers),
+                fontSize = 44.sp,
+                fontWeight = FontWeight.Bold,
+                color = colorResource(id = R.color.purple)
             )
+            LottieAnimation(
+                composition = composition,
+                progress = { progress },
+                modifier = Modifier
+                    .size(300.dp)
+                    .padding(top = 64.dp, bottom = 64.dp)
+
+            )
+            Button(
+                onClick = {
+                    isPlaying = true
+                    context.startActivity(navigate)
+                },
+                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.purple)),
+                modifier = Modifier
+                    .size(100.dp)
+                    )
+             {
+                Text(
+                    text = stringResource(R.string.start),
+                    fontSize = 24.sp
+                )
+            }
         }
     }
     }
