@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -88,10 +89,11 @@ fun MainScreen(context: Context){
             isPlaying=true
             context.startActivity(navigate)
                          },
+            colors = ButtonDefaults.buttonColors(colorResource(id = R.color.button)),
             modifier = Modifier
                 .size(100.dp)
-                .background(color = colorResource(id = R.color.sky_blue))
-                 ) {
+                .background(color = colorResource(id = R.color.sky_blue)
+                 )) {
             Text(
                 text = stringResource(R.string.start),
                 fontSize = 24.sp
