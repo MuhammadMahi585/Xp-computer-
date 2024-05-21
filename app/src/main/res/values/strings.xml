@@ -2,7 +2,7 @@
     <string name="app_name">ItemDisplayApp</string>
     <string name="start">start</string>
     <string name="com_airbnb_android_lottie_compose_6_4_0">com.airbnb.android:lottie-compose:6.4.0</string>
-    <string name="xp_computers">XP Computers</string>
+    <string name="xp_computers">XP Computer</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -72,4 +72,5 @@
     <string name="title_activity_display_item">DisplayItem</string>
     <string name="next_item">Next Item</string>
     <string name="next2">Next</string>
+    <string name="we_deals_in_all_kind_of_quality_products_like_accessories_mobiles_laptops_computers_in_cheap_rates">We Deals in all kind of quality Products like Accessories, Mobiles, Laptops, Computers in cheap rates.</string>
 </resources>

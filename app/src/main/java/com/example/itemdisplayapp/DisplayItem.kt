@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -28,6 +29,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -80,9 +82,9 @@ fun Display() {
         ) {
             Text(
                 text = stringResource(R.string.xp_computers),
-                fontSize = 44.sp,
+                fontSize = MaterialTheme.typography.displayLarge.fontSize,
                 fontWeight = FontWeight.Bold,
-                color = colorResource(id = R.color.purple)
+                color = colorResource(id = R.color.white)
             )
             Spacer(modifier = Modifier.padding(16.dp))
             Image(
@@ -95,7 +97,7 @@ fun Display() {
             Text(
                 text = "$modelTye",
                 maxLines = 1,
-                fontSize = 22.sp,
+                fontSize = MaterialTheme.typography.labelLarge.fontSize,
                 fontWeight = FontWeight.Bold,
                 color = colorResource(id = R.color.white),
                 modifier = Modifier
@@ -104,13 +106,14 @@ fun Display() {
             )
             Button(
                 onClick = { i++ },
-                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.purple)),
+                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.yellow)),
                 modifier = Modifier
                     .size(100.dp)
             ) {
                 Text(
                     text = stringResource(R.string.next2),
                     fontSize = 24.sp,
+                    textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -124,6 +127,7 @@ fun LottieTheme(){
     val progress by animateLottieCompositionAsState(
         composition = composition,
         iterations = LottieConstants.IterateForever)
+
         LottieAnimation(
             modifier = Modifier.fillMaxSize(),
             composition = composition,
