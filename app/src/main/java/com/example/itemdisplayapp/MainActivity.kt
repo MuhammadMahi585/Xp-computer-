@@ -14,8 +14,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -37,7 +35,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
@@ -62,7 +59,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainScreen(context: Context){
-    val navigate= Intent(context,DisplayItem::class.java)
+    val navigate= Intent(context,DisplayItems::class.java)
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.animation))
     var isPlaying by remember{ mutableStateOf(true) }
     val progress by animateLottieCompositionAsState(

@@ -97,7 +97,7 @@ fun Display() {
             Text(
                 text = "$modelTye",
                 maxLines = 1,
-                fontSize = MaterialTheme.typography.labelLarge.fontSize,
+                fontSize = MaterialTheme.typography.bodyLarge.fontSize,
                 fontWeight = FontWeight.Bold,
                 color = colorResource(id = R.color.white),
                 modifier = Modifier
@@ -128,7 +128,7 @@ fun LottieTheme(){
         composition = composition,
         iterations = LottieConstants.IterateForever)
 
-        LottieAnimation(
+    LottieAnimation(
             modifier = Modifier.fillMaxSize(),
             composition = composition,
             progress={progress})
