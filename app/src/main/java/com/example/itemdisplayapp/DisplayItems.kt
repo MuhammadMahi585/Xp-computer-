@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -47,9 +48,12 @@ class DisplayItems : ComponentActivity() {
                             containerColor = colorResource(id = R.color.heading),
                         )
                     )
-                    DataDisplay(acessorieslist)
-                    Spacer(modifier = Modifier.weight(1f))  // Add some spacing before the button
+                    Box(modifier = Modifier.weight(1f)) {
+                        DataDisplay(acessorieslist)
+                    }
+                    //Spacer(modifier = Modifier.weight(1f))  // Add some spacing before the button
                     NewActivityButton(this@DisplayItems)
+                    Spacer(modifier = Modifier.padding(20.dp))
                 }
             }
         }
@@ -103,16 +107,18 @@ fun ItemsDisplay(accessory: Accesories, modifier: Modifier) {
 @Composable
 fun NewActivityButton(context: Context) {
     val navigate = Intent(context, DisplayItem::class.java)
-    Button(
-        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.yellow)),
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(44.dp)
-            .padding(horizontal = 16.dp),
-        shape = CircleShape,
-        onClick = {
-            context.startActivity(navigate)
-        }) {
-        Text(text = "Full View", textAlign = TextAlign.Center)
-    }
+   Button(
+       colors = ButtonDefaults.buttonColors(colorResource(id = R.color.background)),
+       modifier = Modifier
+           .fillMaxWidth()
+           .height(80.dp)
+           .padding(16.dp),
+       shape = CircleShape,
+       onClick = {
+           context.startActivity(navigate)
+       }) {
+   Text("Full View",
+       style = MaterialTheme.typography.headlineSmall)
+
+   }
 }
